@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container parent">
+
+
+    <div class="inner-wrap" style="width:100%">
+        <h2>Download weather report in a city</h2>
+        <div style="width:50%;height:20px"></div>
+        <form class="row g-3">
+            <div class="col-auto">
+                <label for="City" class="visually-hidden">City</label>
+                <input type="text" class="form-control" id="city" value="enter city">
+            </div>
+            <div class="col-auto">
+                <label for="noOfDays" class="visually-hidden">noOfDays</label>
+                <input type="number" class="form-control" id="days" placeholder="No of days">
+            </div>
+            <div class="col-auto">
+                <button id="download" type="button" class="btn btn-primary mb-3">Download Info</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+            function PostData(data, url) {
+                return jQuery.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data
+                });
+            }
+
+            var url = '@Url.Action("FetchData","Home")';
+
+            $("#download").click(function (e) {
+                e.preventDefault();
+
+                var reqBody = {
+                    city:$.trim($("#city").val()),
+                    days: $.trim($("#days").val())
+                }
+
+                if(reqBody.city===""){
+                    $.alert({
+                        title: 'Alert!',
+                        content: 'Please enter city',
+                    });
+
+                    return;
+                }
+
+                if (reqBody.days === "" || reqBody.days==0) {
+                    $.alert({
+                        title: 'Alert!',
+                        content: 'Please enter days',
+                        type: 'red'
+                    });
+
+                    return;
+                }
+
+                $("#download").attr("disabled", true);
+                $("#loader_bg").show();
+                $("#app-loader").show();
+                
+
+                $.when(PostData(reqBody, url)).then(function (response) {
+
+                    if (response.error === true) {
+                        $("#loader_bg").hide();
+                        $("#app-loader").hide();
+                        $("#download").attr("disabled", false);
+                        $.alert({
+                            title: 'Alert!',
+                            content: response.message,
+                            type: 'red'
+                        });
+                    } else {
+                        $("#loader_bg").hide();
+                        $("#app-loader").hide();
+                        $("#city").val('');
+                        $("#days").val('');
+                        $("#download").attr("disabled", false);
+                        $.alert({
+                            title: 'Alert!',
+                            content: response.message,
+                            type: 'green'
+                        });
+                    }
+
+                }).fail(function () {
+                    $("#loader_bg").hide();
+                    $("#app-loader").hide();
+                    $("#download").attr("disabled", false);
+                    $.alert({
+                        title: 'Alert!',
+                        content: "A network error has occured",
+                        type: 'red'
+                    });
+                })
+            })
+        
+        })
+    </script>
+
+}
+
+
+

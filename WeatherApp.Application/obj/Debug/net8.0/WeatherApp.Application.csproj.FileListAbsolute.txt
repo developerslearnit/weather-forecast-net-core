@@ -1,0 +1,11 @@
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\bin\Debug\net8.0\WeatherApp.Application.deps.json
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\bin\Debug\net8.0\WeatherApp.Application.dll
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\bin\Debug\net8.0\WeatherApp.Application.pdb
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.AssemblyInfoInputs.cache
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.AssemblyInfo.cs
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.csproj.CoreCompileInputs.cache
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.dll
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\refint\WeatherApp.Application.dll
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\WeatherApp.Application.pdb
+D:\dev\Web-Projects\WeatherApp\WeatherApp.Application\obj\Debug\net8.0\ref\WeatherApp.Application.dll

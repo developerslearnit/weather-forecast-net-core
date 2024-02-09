@@ -1,0 +1,26 @@
+﻿CREATE DATABASE WeatherApp
+
+USE [WeatherApp]
+GO
+/****** Object:  Table [dbo].[WeatherHistories]    Script Date: 2/9/2024 2:59:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WeatherHistories](
+	[WeatherHistoryId] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [nvarchar](50) NOT NULL,
+	[City] [nvarchar](50) NOT NULL,
+	[AvTempratureC] [decimal](18, 2) NOT NULL,
+	[AvTempratureF] [decimal](18, 2) NOT NULL,
+	[MaxWindMPH] [decimal](18, 2) NOT NULL,
+	[MaxWindKPH] [decimal](18, 2) NOT NULL,
+	[Humidity] [decimal](18, 2) NOT NULL,
+	[WeatherCondition] [nvarchar](500) NOT NULL,
+	[ForecastDate] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_WeatherHistories] PRIMARY KEY CLUSTERED 
+(
+	[WeatherHistoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
